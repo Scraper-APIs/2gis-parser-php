@@ -1,5 +1,7 @@
 # 2GIS Parser PHP
 
+[English](https://github.com/Scraper-APIs/2gis-scraper-php) | **Русский**
+
 PHP-библиотека для парсинга данных 2ГИС: организации, отзывы, недвижимость, вакансии.
 
 Работает через [Apify API](https://apify.com/) — запускает акторы и возвращает типизированные DTO.
