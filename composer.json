@@ -1,0 +1,37 @@
+{
+    "name": "scraper-apis/2gis-parser",
+    "description": "PHP client library for scraping 2GIS data (places, reviews, property, jobs) using Apify actors",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": "^8.3",
+        "guzzlehttp/guzzle": "^7.0"
+    },
+    "require-dev": {
+        "pestphp/pest": "^4.0",
+        "laravel/pint": "^1.0",
+        "phpstan/phpstan": "^1.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "TwoGisParser\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "TwoGisParser\\Tests\\": "tests/"
+        }
+    },
+    "scripts": {
+        "test": "pest",
+        "cs": "pint --test",
+        "cs:fix": "pint",
+        "analyse": "phpstan analyse"
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    }
+}
