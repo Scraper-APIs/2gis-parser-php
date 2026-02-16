@@ -127,13 +127,10 @@ foreach ($jobs as $job) {
 use TwoGisParser\Client;
 use TwoGisParser\Config;
 
+// Изменить таймаут или базовый URL
 $client = new Client('токен', new Config(
     apiToken: 'токен',
-    placesActorId: 'zen-studio/2gis-places-scraper-api',   // по умолчанию
-    reviewsActorId: 'zen-studio/2gis-reviews-scraper',
-    propertyActorId: 'zen-studio/2gis-property-scraper',
-    jobsActorId: 'zen-studio/2gis-jobs-scraper',
-    timeout: 900,
+    timeout: 600,
 ));
 ```
 

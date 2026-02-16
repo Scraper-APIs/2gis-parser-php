@@ -67,7 +67,7 @@ final class Client
         $input = array_merge($input, $options);
 
         try {
-            $items = $this->runActor($this->config->placesActorId, $input);
+            $items = $this->runActor(Config::PLACES_ACTOR_ID, $input);
 
             return array_map(
                 static fn (array $item): Place => Place::fromArray($item),
@@ -118,7 +118,7 @@ final class Client
         $input = array_merge($input, $options);
 
         try {
-            $items = $this->runActor($this->config->reviewsActorId, $input);
+            $items = $this->runActor(Config::REVIEWS_ACTOR_ID, $input);
 
             return array_map(
                 static fn (array $item): Review => Review::fromArray($item),
@@ -168,7 +168,7 @@ final class Client
         $input = array_merge($input, $options);
 
         try {
-            $items = $this->runActor($this->config->propertyActorId, $input);
+            $items = $this->runActor(Config::PROPERTY_ACTOR_ID, $input);
 
             return array_map(
                 static fn (array $item): Property => Property::fromArray($item),
@@ -222,7 +222,7 @@ final class Client
         }
 
         try {
-            $items = $this->runActor($this->config->jobsActorId, $input);
+            $items = $this->runActor(Config::JOBS_ACTOR_ID, $input);
 
             return array_map(
                 static fn (array $item): Job => Job::fromArray($item),
