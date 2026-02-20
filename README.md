@@ -56,12 +56,23 @@ $places = $client->scrapePlaces(
 );
 ```
 
+**Хелперы Place:**
+
+```php
+$place->hasContactInfo();    // есть телефоны или email
+$place->getFirstPhone();     // первый номер телефона или null
+$place->getFirstEmail();     // первый email или null
+$place->hasWebsite();        // есть ли сайт
+$place->getCoordinates();    // ['lat' => float, 'lng' => float] или null
+```
+
 ### Отзывы
 
 ```php
 $reviews = $client->scrapeReviews(
     startUrls: ['https://2gis.ru/moscow/firm/70000001057394703'],
     maxReviews: 100,
+    maxPlaces: 5,
     reviewsRating: ReviewsRating::Negative,  // только 1-2 звезды
     reviewsSource: ReviewsSource::TwoGis,
 );
@@ -73,6 +84,16 @@ foreach ($reviews as $review) {
         echo "Ответ: {$review->getOfficialAnswerText()}" . PHP_EOL;
     }
 }
+```
+
+**Хелперы Review:**
+
+```php
+$review->hasOfficialAnswer();      // есть ли ответ компании
+$review->getOfficialAnswerText();  // текст ответа или null
+$review->hasPhotos();              // есть ли фото у отзыва
+$review->isPositive();             // рейтинг >= 4
+$review->isNegative();             // рейтинг <= 2
 ```
 
 ### Недвижимость
@@ -96,19 +117,36 @@ foreach ($properties as $property) {
 }
 ```
 
+**Хелперы Property:**
+
+```php
+$property->hasImages();         // есть ли фото
+$property->getCoordinates();    // ['lat' => float, 'lng' => float] или null
+$property->getPriceFormatted(); // "1 500 000 RUB" или null
+```
+
 ### Вакансии
 
 ```php
 $jobs = $client->scrapeJobs(
     location: 'Новосибирск',
     maxResults: 300,
+    categoryId: '200',       // Разработка
     salaryMin: 80000,
+    salaryMax: 250000,
 );
 
 foreach ($jobs as $job) {
     echo "{$job->name} — {$job->orgName}" . PHP_EOL;
     echo "Зарплата: {$job->salaryLabel}" . PHP_EOL;
 }
+```
+
+**Хелперы Job:**
+
+```php
+$job->hasApplyUrl();      // есть ли ссылка для отклика
+$job->getCoordinates();   // ['lat' => float, 'lng' => float] или null
 ```
 
 ## Фильтры и перечисления
