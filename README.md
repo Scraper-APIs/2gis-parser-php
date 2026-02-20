@@ -157,6 +157,10 @@ try {
 - PHP 8.3+
 - Токен [Apify API](https://console.apify.com/account/integrations)
 
+## См. также
+
+- [Yandex Parser PHP](https://github.com/Scraper-APIs/yandex-parser-php) — парсинг Яндекса (организации и отзывы с Яндекс Карт, товары с Яндекс Маркета, объявления с Яндекс Недвижимости)
+
 ## Лицензия
 
 MIT
